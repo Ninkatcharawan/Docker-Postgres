@@ -1,23 +1,21 @@
-version: '3.8'
-
+version: '3'
 services:
-  postgres:
+  db:
     image: postgres:14
-    restart: always
     environment:
-      POSTGRES_DB: mydatabase
+      POSTGRES_DB: mydb
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./seed:/docker-entrypoint-initdb.d/
     ports:
-      - "6000:6000"
+      - "5432:5432"
 
-  python_api:
+  api:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "80:80"
     depends_on:
-      - postgres
+      - db

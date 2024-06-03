@@ -1,3 +1,5 @@
-flask
-pandas
-scikit-learn
+fastapi==0.89.1  # สำหรับ API framework FastAPI
+uvicorn==0.20.0  # ASGI web server สำหรับรัน FastAPI
+pandas==1.5.3    # สำหรับการประมวลผลข้อมูล
+scikit-learn==1.2.1  # สำหรับ machine learning
+psycopg2-binary==2.9.5  # สำหรับเชื่อมต่อ PostgreSQL
